@@ -5,11 +5,19 @@
 .. image:: https://badge.fury.io/py/{{ cookiecutter.repo_name }}.svg
     :target: https://badge.fury.io/py/{{ cookiecutter.repo_name }}
 
-.. image:: https://travis-ci.org/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}.svg?branch=master
+.. image:: https://travis-ci.org/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}.svg?branch=develop
     :target: https://travis-ci.org/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}
 
-.. image:: https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/branch/master/graph/badge.svg
+.. image:: https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/branch/develop/graph/badge.svg
     :target: https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}
+
+.. image:: https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/shield.svg
+     :target: https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/
+     :alt: Updates
+
+.. image:: https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/python-3-shield.svg
+      :target: https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/
+      :alt: Python 3
 
 {{ cookiecutter.project_short_description}}
 
@@ -31,7 +39,7 @@ Add it to your `INSTALLED_APPS`:
 
     INSTALLED_APPS = (
         ...
-        '{{ cookiecutter.app_name }}.apps.{{ cookiecutter.app_config_name }}',
+        '{{ cookiecutter.app_name }}',
         ...
     )
 
@@ -44,7 +52,7 @@ Add {{ cookiecutter.project_name }}'s URL patterns:
 
     urlpatterns = [
         ...
-        url(r'^', include({{ cookiecutter.app_name }}_urls)),
+        url(r'^', include({{ cookiecutter.app_name }}_urls, namespace='{{ cookiecutter.app_name }}')),
         ...
     ]
 
