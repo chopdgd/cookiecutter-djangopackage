@@ -28,8 +28,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.sites",
     "django.contrib.staticfiles",
-
     "django.contrib.admin",
+    "django.contrib.messages",
 
     "{{ cookiecutter.app_name }}",
 ]
@@ -44,7 +44,7 @@ DJANGO_MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
- ]
+]
 
 if django.VERSION >= (1, 10):
     MIDDLEWARE = DJANGO_MIDDLEWARE
