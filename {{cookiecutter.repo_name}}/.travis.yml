@@ -4,9 +4,8 @@ dist: xenial
 
 language: python
 
-python:
-  - "2.7"
-  - "3.4"
+python: {% if '1.11' in cookiecutter.django_versions %}
+  - "2.7"{% endif %}
   - "3.5"
   - "3.6"
 
