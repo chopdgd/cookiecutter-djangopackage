@@ -28,6 +28,12 @@ def get_version(*file_paths):
     raise RuntimeError('Unable to find version string.')
 
 
+def parse_requirements():
+    """ load requirements from a pip requirements file """
+    lineiter = (line.strip() for line in open('requirements.txt'))
+    return [line for line in lineiter if line and not line.startswith("#")]
+
+
 version = get_version("{{ cookiecutter.app_name }}", "__init__.py")
 
 
@@ -63,7 +69,7 @@ setup(
         '{{ cookiecutter.app_name }}',
     ],
     include_package_data=True,
-    install_requires=[{% if cookiecutter.models != "Comma-separated list of models" %}"django-model-utils>=2.0",{% endif %}],
+    install_requires=parse_requirements(),
 {%- if cookiecutter.open_source_license in license_classifiers %}
     license="{{ cookiecutter.open_source_license }}",
 {%- endif %}
